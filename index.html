@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crimson Solutions provides professional notary services, comprehensive title review reports, bank loan reviews, and specialized training for realtors and lenders in Nashville, Tennessee.">
+    <meta name="keywords" content="notary nashville tn, title review reports, bank loan review, realtor training nashville, loan document training, title document review">
+    <title>Crimson Solutions | Document Excellence & Professional Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+        :root {
+            --crimson: #9E1B32;
+            --gold: #C5A46E;
+        }
+
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(158, 27, 50, 0.92), rgba(158, 27, 50, 0.92)),
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--crimson);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .crimson-btn {
+            background: linear-gradient(to right, #9E1B32, #7A1622);
+            transition: all 0.3s ease;
+        }
+
+        .crimson-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(158 27 50 / 0.4);
+        }
+    </style>
+</head>
+<body class="tail-container text-gray-800 bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 bg-[#9E1B32] rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-inner">CS</div>
+                    <div>
+                        <span class="heading-font text-3xl font-bold tracking-tighter text-[#9E1B32]">CRIMSON</span>
+                        <span class="heading-font text-3xl font-light tracking-tighter text-gray-800">SOLUTIONS</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-10 text-sm font-medium">
+                    <a href="#services" class="nav-link text-gray-700 hover:text-[#9E1B32]">Services</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-[#9E1B32]">About</a>
+                    <a href="#training" class="nav-link text-gray-700 hover:text-[#9E1B32]">Training</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-[#9E1B32]">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <a href="tel:615-555-0187" class="flex items-center gap-x-2 text-[#9E1B32] font-semibold hover:text-[#7A1622]">
+                        <i class="fas fa-phone"></i>
+                        <span>(615) 555-0187</span>
+                    </a>
+                    <button onclick="showContactModal()"
+                            class="crimson-btn text-white px-8 py-3.5 rounded-2xl font-semibold text-sm flex items-center gap-x-2 shadow-md">
+                        <i class="fas fa-file-signature"></i>
+                        <span>GET STARTED</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg text-white py-28">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/20 backdrop-blur px-5 py-2 rounded-3xl text-sm mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="font-medium">Nashville, Tennessee • Licensed &amp; Bonded</span>
+                </div>
+
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                    PRECISION DOCUMENT<br>SOLUTIONS
+                </h1>
+
+                <p class="text-xl text-white/90 mb-10">
+                    Professional notary services, meticulous title review reports,
+                    bank loan examinations, and expert training for realtors and lending professionals.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showContactModal()"
+                            class="crimson-btn text-white px-10 py-5 rounded-2xl text-lg font-semibold flex items-center gap-x-3">
+                        SCHEDULE CONSULTATION
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="#services"
+                       class="border-2 border-white/80 hover:bg-white/10 text-white px-8 py-5 rounded-2xl text-lg font-medium flex items-center gap-x-2 transition-all">
+                        VIEW SERVICES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <div class="inline px-6 py-2 bg-[#9E1B32]/10 text-[#9E1B32] text-sm font-semibold rounded-3xl">OUR SERVICES</div>
+                <h2 class="heading-font text-5xl font-bold mt-6 tracking-tight text-gray-900">Document Excellence &amp; Professional Development</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Notary -->
+                <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+                    <div class="w-16 h-16 bg-[#9E1B32]/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-stamp text-4xl text-[#9E1B32]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Professional Notary Services</h3>
+                    <p class="text-gray-600 mb-8">Mobile and office notary services across the Nashville metro area. Reliable, prompt, and fully compliant with all Tennessee notary requirements.</p>
+                    <div class="text-xs uppercase tracking-widest text-gray-500 mb-2">Available for:</div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-x-2"><i class="fas fa-check text-emerald-500"></i> Loan signings</li>
+                        <li class="flex items-center gap-x-2"><i class="fas fa-check text-emerald-500"></i> Affidavits and acknowledgments</li>
+                        <li class="flex items-center gap-x-2"><i class="fas fa-check text-emerald-500"></i> Real estate documents</li>
+                    </ul>
+                </div>
+
+                <!-- Title Review -->
+                <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+                    <div class="w-16 h-16 bg-[#9E1B32]/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-file-search text-4xl text-[#9E1B32]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Full Title Review Reports</h3>
+                    <p class="text-gray-600 mb-8">Comprehensive examination of title documents with detailed reports identifying exceptions, liens, easements, and potential issues. Clear, actionable analysis delivered promptly.</p>
+                    <div class="inline-flex items-center gap-x-2 bg-emerald-100 text-emerald-700 text-xs font-medium px-4 h-7 rounded-2xl">48-72 Hour Turnaround</div>
+                </div>
+
+                <!-- Bank Loan Reviews -->
+                <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+                    <div class="w-16 h-16 bg-[#9E1B32]/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-landmark text-4xl text-[#9E1B32]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Bank Loan Reviews</h3>
+                    <p class="text-gray-600 mb-8">Thorough due diligence review of loan packages, closing documents, and compliance requirements. Protect your institution with our detailed risk assessment reports.</p>
+                </div>
+
+                <!-- Training -->
+                <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+                    <div class="w-16 h-16 bg-[#9E1B32]/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-chalkboard-teacher text-4xl text-[#9E1B32]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Realtor &amp; Loan Document Training</h3>
+                    <p class="text-gray-600 mb-8">Professional development programs for real estate agents and lending professionals. Master proper document preparation, common pitfalls, compliance, and best practices.</p>
+                    <div class="text-xs bg-amber-100 text-amber-700 px-4 py-1 inline-flex items-center rounded-2xl">In-person • Virtual • Group Sessions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <h2 class="heading-font text-5xl font-bold tracking-tighter leading-none mb-8 text-gray-900">Excellence Through Precision</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Crimson Solutions delivers meticulous document review, professional notary services,
+                            and targeted training programs built on decades of real estate and lending expertise.
+                        </p>
+                        <div class="mt-12 flex items-center gap-x-8">
+                            <div class="text-center">
+                                <div class="text-5xl font-bold text-[#9E1B32]">500+</div>
+                                <div class="text-xs tracking-widest uppercase text-gray-500">Documents Reviewed</div>
+                            </div>
+                            <div class="h-12 border-l border-gray-200"></div>
+                            <div class="text-center">
+                                <div class="text-5xl font-bold text-[#9E1B32]">98%</div>
+                                <div class="text-xs tracking-widest uppercase text-gray-500">Client Retention</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 text-gray-600 space-y-8">
+                    <p>Our team combines deep technical knowledge of title documents, lending regulations, and real estate transactions with a commitment to exceptional service.</p>
+                    <p>Whether you require a detailed title review report, professional notary execution, independent loan file examination, or staff training to reduce errors and improve compliance, Crimson Solutions provides the highest standard of professional support.</p>
+
+                    <div class="pt-8 border-t flex items-center gap-x-6 text-sm">
+                        <div class="px-5 py-2.5 bg-gray-100 rounded-3xl font-medium">Tennessee Notary Commission</div>
+                        <div class="px-5 py-2.5 bg-gray-100 rounded-3xl font-medium">Licensed Title Review Specialist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Highlight -->
+    <section id="training" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="text-[#C5A46E] text-sm font-semibold tracking-[2px] mb-3">PROFESSIONAL DEVELOPMENT</div>
+                    <h2 class="heading-font text-5xl font-bold tracking-tighter leading-none mb-6">Realtor &amp; Lender Training Programs</h2>
+                    <p class="text-gray-400">Reduce errors, improve compliance, and close transactions faster with our specialized document training workshops.</p>
+                </div>
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                            <div class="text-[#C5A46E] text-xl mb-4">📋</div>
+                            <div class="font-semibold text-xl mb-2">Loan Document Mastery</div>
+                            <div class="text-gray-400 text-sm">Comprehensive training on proper completion of loan packages, common compliance traps, and best practices for error-free submissions.</div>
+                        </div>
+                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                            <div class="text-[#C5A46E] text-xl mb-4">🏠</div>
+                            <div class="font-semibold text-xl mb-2">Realtor Title &amp; Closing Essentials</div>
+                            <div class="text-gray-400 text-sm">Practical workshops that help real estate professionals avoid costly delays through proper document preparation and title issue awareness.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-2xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-5xl font-bold tracking-tighter">Begin Your Project</h2>
+                <p class="text-gray-600 mt-4">Whether you need a title review, notary services, or staff training, our team is ready to assist.</p>
+            </div>
+
+            <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-8">
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" id="name" placeholder="Full Name" required
+                           class="w-full px-6 py-5 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#9E1B32]">
+                    <input type="tel" id="phone" placeholder="Phone Number" required
+                           class="w-full px-6 py-5 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#9E1B32]">
+                </div>
+
+                <input type="email" id="email" placeholder="Business Email" required
+                       class="w-full px-6 py-5 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#9E1B32]">
+
+                <select id="serviceType" required
+                        class="w-full px-6 py-5 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#9E1B32]">
+                    <option value="">Select Service Needed...</option>
+                    <option value="notary">Notary Services</option>
+                    <option value="title-review">Title Review Report</option>
+                    <option value="loan-review">Bank Loan Review</option>
+                    <option value="training">Realtor / Loan Document Training</option>
+                    <option value="other">Other / Consultation</option>
+                </select>
+
+                <textarea id="message" rows="5" placeholder="Please describe your project or training needs..."
+                          class="w-full px-6 py-5 border border-gray-200 rounded-3xl focus:outline-none focus:border-[#9E1B32]"></textarea>
+
+                <button type="submit"
+                        class="crimson-btn w-full py-6 text-white font-semibold rounded-3xl text-lg flex items-center justify-center gap-x-3">
+                    SUBMIT REQUEST
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="text-center text-xs text-gray-400 mt-10">
+                Nashville, Tennessee • (615) 555-0187 • All inquiries receive a response within 4 business hours.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-8 text-center">
+            <div class="flex justify-center items-center gap-x-3 mb-8">
+                <div class="w-8 h-8 bg-white rounded-2xl flex items-center justify-center text-[#9E1B32] text-2xl font-black">C</div>
+                <span class="heading-font text-3xl font-bold tracking-tighter text-white">CRIMSON SOLUTIONS</span>
+            </div>
+            <p class="text-sm max-w-xs mx-auto">Precision document services and professional training for the real estate and lending community.</p>
+            <div class="mt-12 text-xs">© 2026 Crimson Solutions, LLC. Nashville, Tennessee. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-[100]">
+        <div onclick="event.stopImmediatePropagation()"
+             class="bg-white max-w-md w-full mx-4 rounded-3xl overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="font-semibold text-2xl text-gray-900">Let's Get Started</div>
+                    <button onclick="hideContactModal()" class="text-4xl leading-none text-gray-300 hover:text-gray-500">×</button>
+                </div>
+                <p class="text-gray-600 mb-8">Tell us about your notary, title review, loan review, or training needs.</p>
+
+                <div id="modalForm" class="space-y-6">
+                    <input id="modalName" type="text" placeholder="Your Name" class="w-full px-6 py-4 border border-gray-200 rounded-2xl">
+                    <input id="modalEmail" type="email" placeholder="Email Address" class="w-full px-6 py-4 border border-gray-200 rounded-2xl">
+                    <textarea id="modalMessage" rows="4" placeholder="Project details..." class="w-full px-6 py-4 border border-gray-200 rounded-3xl"></textarea>
+
+                    <button onclick="submitModalForm()"
+                            class="crimson-btn w-full py-6 text-white font-semibold rounded-3xl">
+                        SEND MESSAGE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('contactModal').classList.add('flex');
+        }
+
+        function hideContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'SUBMITTING...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert(`Thank you, ${name.split(' ')[0]}!\\n\\nYour request has been received. A member of the Crimson Solutions team will contact you within 4 business hours.`);
+                e.target.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1100);
+        }
+
+        function submitModalForm() {
+            const name = document.getElementById('modalName').value || "Client";
+            hideContactModal();
+            setTimeout(() => {
+                alert(`Thank you, ${name.split(' ')[0]}!\\n\\nYour inquiry has been received and will be prioritized.`);
+            }, 600);
+        }
+
+        // Initialize Tailwind and log success
+        window.onload = function() {
+            console.log('%cCrimson Solutions Website Loaded Successfully', 'color:#9E1B32; font-family:monospace; font-weight:600');
+            console.log('%c✓ Simple, professional design with University of Alabama inspired crimson theme\\n✓ Focused on notary, title review, loan review, and training services\\n✓ Clean conversion-focused layout\\n✓ Fully responsive and ready for deployment', 'color:#666; font-size:12px');
+        };
+
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.metaKey && e.key === 'k') {
+                e.preventDefault();
+                showContactModal();
+            }
+        });
+    </script>
+</body>
+</html>
