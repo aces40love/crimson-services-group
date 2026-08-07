@@ -71,15 +71,35 @@ If you rename a plan, update `PLAN_LABELS` in `site.js` to match.
 
 ## TREC advertising compliance
 
-These disclosures appear in the footer of **every page** and in full on `contact.html#disclosures`:
+**See `COMPLIANCE.md` for the full review, the citations, and the open questions that block launch.**
+
+Two blocks carry the required disclosures, and both appear on **all six pages**:
+
+1. **`.brokerage-band`** — directly below the header. Firm name, firm telephone, supervision
+   statement. TREC Rule 1260-02-.12(3)(b) requires the firm name in letters *the same size or
+   larger* than the licensee's or any group's name, so `.bb-firm` deliberately shares the exact
+   font-size token as `.site-header .brand-name`. **Change one and you must change the other.**
+2. **`.footer-legal`** — broker line, the verbatim T.C.A. § 8-16-201(a)(1) notary notice
+   (`.notary-notice`, the gold box — do not shrink, reword, or remove it), and the Equal Housing
+   statement.
+
+Full disclosures also appear on `contact.html#disclosures`.
 
 - Brokerage firm: **O'Neill Property Management**
 - Broker phone (TREC file): **615-650-0008** — required on every page
-- Licensed agent: **Catrena S. Thompson**, REALTOR®
-- Broker supervision statement
-- No false or misleading claims statement
+- Licensed agent: **Catrena S. Thompson**, REALTOR® — Tennessee Affiliate Broker, License #340848
+  (confirmed against the TDCI license record, active, expires 05/07/2027)
 
-If any of these change, update the `.footer-legal` block in all six HTML files.
+If any of these change, update `.brokerage-band` and `.footer-legal` in all six HTML files.
+
+## Business cards
+
+`business-cards.html` — three cards (Crimson Services Group, Crimson Solutions, Crimson Title
+Services), front and back, drawn at 3.5″ × 2″ trim with 0.125″ bleed. Open it in a browser; the
+on-screen notes explain how to proof and what to hand a printer. Office 615-994-9244, direct
+615-994-9094, broker 615-650-0008, License #340848. One item to confirm before printing: Card 2's
+notary commission county is filled in as Davidson, inferred from the real estate license
+address — verify it against the actual notary commission.
 
 ---
 

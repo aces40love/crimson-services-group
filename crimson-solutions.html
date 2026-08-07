@@ -39,7 +39,7 @@
 <header class="site-header">
   <nav class="nav" aria-label="Main navigation">
     <a class="brand" href="index.html">
-      <img class="brand-logo" src="assets/img/logos/crimson-services-group.jpg" alt="Crimson Services Group logo" width="46" height="46">
+      <img class="brand-logo" src="assets/img/logos/crimson-services-group.jpg" alt="Crimson Services Group logo" width="88" height="88">
       <span class="brand-txt">
         <span class="brand-name">Crimson Services Group</span>
         <span class="brand-sub">Integrated Expertise · Comprehensive Solutions</span>
@@ -61,13 +61,33 @@
   </nav>
 </header>
 
+<!-- ============ BROKERAGE BAND (TREC Rule 1260-02-.12(3)(b)) ============
+     Firm name + firm telephone as filed with the Commission, on every page.
+     The firm name is typeset at the same size as "Crimson Services Group" in
+     the header, as the rule requires. Do not shrink it in isolation. -->
+<div class="brokerage-band" role="region" aria-label="Real estate brokerage firm disclosure">
+  <div class="wrap">
+    <div class="bb-lockup">
+      <img class="bb-logo" src="assets/img/logos/oneill-property-management.jpg" alt="O'Neill Property Management" loading="lazy">
+      <span class="bb-txt">
+        <span class="bb-eyebrow">Real estate brokerage firm</span>
+        <span class="bb-firm">O&rsquo;Neill Property Management</span>
+      </span>
+    </div>
+    <span class="bb-meta">
+      <span>Firm telephone: <a href="tel:6156500008">615-650-0008</a></span>
+      <span class="bb-sup">Catrena S. Thompson, REALTOR&reg;, Tennessee Affiliate Broker, License #340848. All real estate advertising is under the supervision of the principal broker.</span>
+    </span>
+  </div>
+</div>
+
 <main id="main">
 
 <section class="page-hero">
   <div class="wrap">
     <div class="page-hero-inner">
       <div class="crumbs"><a href="index.html">Home</a><span>/</span>Crimson Solutions</div>
-      <div class="logo-tile" style="max-width:190px;margin-bottom:26px">
+      <div class="logo-tile" style="margin-bottom:26px">
         <img src="assets/img/logos/crimson-solutions.jpg" alt="Crimson Solutions logo">
       </div>
       <h1>We bring the closing table to you.</h1>
@@ -76,6 +96,49 @@
         <a class="btn btn--primary" href="contact.html">Schedule a signing</a>
         <a class="btn btn--light" href="tel:6159949244">Call 615-994-9244</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREDENTIALS & AFFILIATIONS ============ -->
+<section class="cred-band" aria-label="Credentials and affiliations">
+  <div class="wrap">
+    <div class="cred-band-head">Credentials &amp; affiliations</div>
+    <div class="cred-marks">
+
+      <!-- NNA Certified Notary Signing Agent badge — the official member embed code
+           supplied by the National Notary Association (see choose_nsa.pdf). The image is
+           served from nationalnotary.org by design: the NNA hosts it so it can be withdrawn
+           if a certification lapses. Do not download and self-host it, and do not display
+           it unless the certification and background screening are current. -->
+      <div class="cred-mark">
+        <a class="nna-badge" href="https://www.nationalnotary.org/knowledge-center/signing-agent-resources" target="_blank" rel="noopener">
+          <img src="https://www.nationalnotary.org/Image%20Library/NNA/membership%20images/nsa_member_badge.png"
+               alt="National Notary Association Certified Notary Signing Agent"
+               title="Certified Notary Signing Agent" width="100" height="100" loading="lazy">
+        </a>
+        <span class="cred-mark-txt">
+          <b>Certified Notary Signing Agent</b>
+          <span>National Notary Association — background screened</span>
+        </span>
+      </div>
+
+      <div class="cred-mark">
+        <span class="cred-seal" aria-hidden="true">TN</span>
+        <span class="cred-mark-txt">
+          <b>Tennessee Notary Public</b>
+          <span>Commissioned in the State of Tennessee</span>
+        </span>
+      </div>
+
+      <div class="cred-mark">
+        <img src="assets/img/logos/oneill-property-management.jpg" alt="O'Neill Property Management" loading="lazy">
+        <span class="cred-mark-txt">
+          <b>O'Neill Property Management</b>
+          <span>Real estate brokerage firm · Broker <a href="tel:6156500008">615-650-0008</a></span>
+        </span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -107,8 +170,8 @@
         <div><h4>Real estate transaction support</h4><p>Back-office help for agents, brokers, and investors — document tracking, deadline management, and file assembly.</p></div>
       </div>
       <div class="feat">
-        <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
-        <div><h4>Professional training</h4><p>Practical development for notaries and real estate professionals who want to work at a higher standard.</p></div>
+        <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><h4>Efficient turnaround</h4><p>Appointments confirmed quickly, packages pre-checked before the signing, and scan-backs the same day — so the file keeps moving.</p></div>
       </div>
     </div>
   </div>
@@ -207,7 +270,7 @@
       </div>
       <div class="acc">
         <button class="acc-q" aria-expanded="false">How much does a signing cost?<span class="acc-icon"></span></button>
-        <div class="acc-a"><div class="acc-a-inner">Tennessee sets a maximum fee per notarial act; mobile service, printing, and scan-backs are quoted separately based on distance, package size, and timing. You will always have the total in writing before we schedule.</div></div>
+        <div class="acc-a"><div class="acc-a-inner">Tennessee law entitles a notary to a reasonable fee for each notarial act; mobile service, printing, and scan-backs are quoted separately based on distance, package size, and timing. You will always have the total in writing before we schedule.</div></div>
       </div>
       <div class="acc">
         <button class="acc-q" aria-expanded="false">How much notice do you need?<span class="acc-icon"></span></button>
@@ -242,7 +305,7 @@
           <span class="brand-sub">Integrated Expertise · Est. 2026</span>
         </span>
       </div>
-      <p>Integrated expertise in real estate, title, notary, and loan compliance for West &amp; Middle Tennessee.</p>
+      <p>Integrated expertise in real estate, title, notary, and loan compliance for Middle Tennessee.</p>
       <div class="footer-contact">
         <a href="tel:6159949244">615-994-9244</a>
         <a href="mailto:catrena@crimsonservicesgroup.com">catrena@crimsonservicesgroup.com</a>
@@ -283,9 +346,12 @@
     <div class="broker-line">
       <span>Real estate brokerage services provided through <strong>O'Neill Property Management</strong></span>
       <span>Broker: <a href="tel:6156500008">615-650-0008</a></span>
-      <span>Licensed agent: <strong>Catrena S. Thompson</strong>, REALTOR®</span>
+      <span>Licensed agent: <strong>Catrena S. Thompson</strong>, REALTOR® — Tennessee Affiliate Broker, License #340848</span>
     </div>
-    <p style="margin-top:10px">All real estate advertising is under the supervision of the principal broker. A notary public is not an attorney and may not provide legal advice, prepare legal documents, or advise which form to use. Notarial fees are governed by Tennessee law; travel, printing, and shipping are quoted separately.</p>
+    <p style="margin-top:10px">All real estate advertising is under the supervision of the principal broker. A notary public may not prepare legal documents or advise which form to use. Notarial fees are charged as a reasonable fee per notarial act under Tennessee law; travel, printing, and shipping are quoted separately.</p>
+
+    <p class="notary-notice">I AM NOT AN ATTORNEY LICENSED TO PRACTICE LAW IN THE STATE OF TENNESSEE, AND I MAY NOT GIVE LEGAL ADVICE OR ACCEPT FEES FOR LEGAL ADVICE.</p>
+    <p class="eho-line"><span class="eho-mark" aria-hidden="true">EHO</span><span>Equal Housing Opportunity. We do business in accordance with the Federal Fair Housing Act and do not discriminate on the basis of race, color, religion, sex, handicap, familial status, or national origin.</span></p>
   </div>
 </footer>
 

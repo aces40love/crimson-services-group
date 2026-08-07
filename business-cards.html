@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Cards — Crimson Services Group, LLC</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Business cards — print-ready artwork, 3.5in x 2in trim.
+   Each .card is drawn at 3.75in x 2.25in: a 0.125in bleed on every edge.
+   The dashed rule is the trim line; the inner dotted rule is the 0.125in
+   safe margin. Nothing that matters crosses it.
+
+   To print proofs at home: Ctrl+P, Letter, portrait, margins "None" or
+   "Default", scale 100% (NOT "fit to page"), background graphics ON.
+   To send to a printer: print to PDF from Chrome at 100% scale, or hand them
+   this file plus the spec block at the bottom of the page.
+   ========================================================================== */
+:root{
+  --crimson:#8B1538;
+  --crimson-dk:#6B102A;
+  --crimson-lt:#A91D3A;
+  --navy:#1E3A5F;
+  --ink:#0F1B2D;
+  --gold:#C9A227;
+  --gold-lt:#E4C766;
+  --paper:#FCFBF9;
+  --slate:#4A5568;
+  --serif:"Crimson Pro","Iowan Old Style",Palatino,Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
+  --bleed:.125in;
+  --trim-w:3.5in;
+  --trim-h:2in;
+  --card-w:3.75in;   /* trim + bleed both sides */
+  --card-h:2.25in;
+  --safe:.25in;      /* bleed + 0.125in safe margin, measured from card edge */
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:#E9E5DD;color:var(--ink);
+  font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  print-color-adjust:exact;-webkit-print-color-adjust:exact
+}
+.page{max-width:9in;margin:0 auto;padding:34px 22px 60px}
+.screen-note{
+  background:#fff;border:1px solid rgba(15,27,45,.12);border-left:4px solid var(--crimson);
+  border-radius:12px;padding:20px 24px;margin-bottom:34px;font-size:14px;line-height:1.6;color:var(--slate)
+}
+.screen-note h1{font-family:var(--serif);font-size:24px;color:var(--ink);margin:0 0 10px}
+.screen-note code{background:#F3F1EC;padding:1px 5px;border-radius:4px;font-size:12.5px}
+.screen-note ul{margin:10px 0 0;padding-left:20px}
+.screen-note li{margin-bottom:4px}
+
+.set-label{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--slate);margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(15,27,45,.14)
+}
+.pair{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+
+/* ---------- card shell ---------- */
+.card{
+  position:relative;width:var(--card-w);height:var(--card-h);
+  overflow:hidden;background:#fff;
+  box-shadow:0 2px 6px rgba(11,18,32,.14),0 14px 34px rgba(11,18,32,.14);
+  break-inside:avoid;page-break-inside:avoid
+}
+.card-inner{
+  position:absolute;inset:var(--safe);z-index:3;
+  display:flex;flex-direction:column
+}
+/* trim + safe guides — screen only, and only when guides are on */
+.guides .card::after{
+  content:"";position:absolute;z-index:9;pointer-events:none;
+  inset:var(--bleed);border:1px dashed rgba(139,21,56,.55)
+}
+.guides .card::before{
+  content:"";position:absolute;z-index:9;pointer-events:none;
+  inset:var(--safe);border:1px dotted rgba(30,58,95,.4)
+}
+.cap{font-size:11px;color:var(--slate);margin-top:7px;letter-spacing:.04em}
+
+/* ---------- FRONT: crimson field ---------- */
+.front{color:#fff}
+.front::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(120% 120% at 8% -10%,rgba(196,38,74,.9),transparent 62%),
+    radial-gradient(90% 90% at 100% 110%,rgba(21,42,69,.55),transparent 66%),
+    linear-gradient(152deg,#A11B3F 0%,#8B1538 44%,#5E0E24 100%);
+}
+.front::after{
+  content:"";position:absolute;z-index:1;pointer-events:none;
+  right:-.45in;top:-.45in;width:1.5in;height:1.5in;border-radius:50%;
+  background:rgba(255,255,255,.06)
+}
+.front .card-inner{justify-content:space-between}
+.f-top{display:flex;align-items:center;gap:.11in}
+.f-logo{
+  width:.62in;height:.62in;flex:none;border-radius:.07in;background:#fff;
+  padding:.03in;object-fit:contain;box-shadow:0 .04in .1in rgba(0,0,0,.22)
+}
+.f-name{font-family:var(--serif);font-size:15.5pt;font-weight:700;line-height:1.02;letter-spacing:-.01em;color:#fff}
+.f-parent{font-size:5.6pt;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-top:.035in}
+.f-rule{height:2px;width:.55in;background:var(--gold);border-radius:2px;margin:.09in 0 .07in}
+.f-tag{font-size:7.4pt;line-height:1.42;color:rgba(255,255,255,.86);max-width:2.5in}
+.f-person{font-family:var(--serif);font-size:11.5pt;font-weight:700;color:#fff;line-height:1.1}
+.f-title{font-size:6.4pt;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-top:.03in}
+
+/* ---------- BACK: paper field ---------- */
+.back{background:var(--paper);color:var(--ink)}
+.back::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:.14in;z-index:1;
+  background:linear-gradient(180deg,var(--crimson) 0%,var(--crimson-dk) 100%)
+}
+.back .card-inner{padding-left:.06in;justify-content:space-between}
+.b-name{font-family:var(--serif);font-size:12.5pt;font-weight:700;line-height:1.08;color:var(--ink)}
+.b-role{font-size:6.2pt;letter-spacing:.13em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-top:.035in}
+.b-brand{font-size:6.4pt;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-top:.02in}
+
+.b-contact{display:grid;grid-template-columns:auto 1fr;gap:.035in .09in;font-size:7.4pt;line-height:1.34;margin-top:.09in}
+.b-contact dt{color:var(--crimson);font-weight:700;font-size:5.9pt;letter-spacing:.09em;text-transform:uppercase;align-self:center;white-space:nowrap}
+.b-contact dd{margin:0;color:var(--ink);font-weight:600;white-space:nowrap}
+.b-contact dd.sm{font-weight:500;font-size:6.9pt}
+
+.b-legal{
+  border-top:1px solid rgba(15,27,45,.16);padding-top:.055in;margin-top:.06in;
+  font-size:4.9pt;line-height:1.34;color:var(--slate)
+}
+.b-legal strong{color:var(--ink)}
+.b-legal .lgl-row{display:flex;align-items:center;gap:.07in;flex-wrap:wrap}
+.b-opm{height:.19in;width:auto;flex:none}
+.b-marks{display:flex;align-items:center;gap:.07in;margin-top:.045in}
+.b-seal{
+  width:.24in;height:.24in;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--ink);color:var(--gold-lt);border:.012in solid var(--gold);
+  font-family:var(--serif);font-size:5pt;font-weight:700;line-height:1
+}
+
+@media print{
+  body{background:#fff}
+  .page{max-width:none;padding:0}
+  .screen-note,.set-label,.cap,.spec{display:none !important}
+  .guides .card::before,.guides .card::after{display:none !important}
+  .pair{display:block}
+  .card{box-shadow:none;margin:0 auto 0}
+  @page{size:letter;margin:.25in}
+}
+</style>
+</head>
+<body class="guides">
+<div class="page">
+
+<div class="screen-note">
+  <h1>Business cards — Crimson Services Group, LLC</h1>
+  <p>Three cards, front and back. Everything is drawn at final size: <strong>3.5&Prime; &times; 2&Prime; trim with a 0.125&Prime; bleed on all four sides</strong> (3.75&Prime; &times; 2.25&Prime; overall). The dashed crimson rule is the trim line; the dotted navy rule is the safe margin.</p>
+  <ul>
+    <li><strong>To proof at home:</strong> Ctrl&#8239;+&#8239;P &rarr; Letter &rarr; Scale <strong>100%</strong> (not &ldquo;Fit to page&rdquo;) &rarr; Background graphics <strong>on</strong>.</li>
+    <li><strong>To send to a printer:</strong> print to PDF from Chrome at 100% scale, or send them this file plus the spec at the bottom of the page.</li>
+    <li><strong>Numbers used:</strong> office <strong>615-994-9244</strong> &middot; direct <strong>615-994-9094</strong> &middot; broker <strong>615-650-0008</strong>.</li>
+    <li><strong>License:</strong> TN Affiliate Broker #340848 (verified against the TDCI license record, active, expires 05/07/2027).</li>
+    <li><strong>One item left to confirm:</strong> the notary commission county on Card&nbsp;2 is filled in as <strong>Davidson</strong>, inferred from the license record's Nashville/Davidson County address &mdash; that is a different credential from the real estate license, so confirm it against the actual notary commission before printing.</li>
+  </ul>
+</div>
+
+<!-- ================= CARD 1 — CRIMSON SERVICES GROUP ================= -->
+<div class="set-label">Card 1 &middot; Crimson Services Group, LLC &mdash; parent company</div>
+<div class="pair">
+
+  <div>
+    <div class="card front">
+      <div class="card-inner">
+        <div class="f-top">
+          <img class="f-logo" src="assets/img/logos/crimson-services-group.jpg" alt="">
+          <div>
+            <div class="f-name">Crimson<br>Services Group</div>
+            <div class="f-parent">Integrated Expertise &middot; Est. 2026</div>
+          </div>
+        </div>
+        <div>
+          <div class="f-rule"></div>
+          <div class="f-tag">Mobile notary &amp; certified loan signings &middot; title and escrow &middot; loan-file compliance review. Serving Middle Tennessee.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Front</div>
+  </div>
+
+  <div>
+    <div class="card back">
+      <div class="card-inner">
+        <div>
+          <div class="b-name">Dr. Catrena S. Thompson</div>
+          <div class="b-role">Founder &amp; Owner</div>
+          <div class="b-brand">Crimson Services Group, LLC</div>
+          <dl class="b-contact">
+            <dt>Office</dt><dd>615-994-9244</dd>
+            <dt>Direct</dt><dd>615-994-9094</dd>
+            <dt>Email</dt><dd class="sm">catrena@crimsonservicesgroup.com</dd>
+            <dt>Web</dt><dd class="sm">crimsonservicesgroup.com</dd>
+          </dl>
+        </div>
+        <div class="b-legal">
+          <div class="lgl-row">
+            <img class="b-opm" src="assets/img/logos/oneill-property-management.jpg" alt="">
+            <span>Real estate brokerage services provided through <strong>O&rsquo;Neill Property Management</strong> &middot; Broker <strong>615-650-0008</strong>. Catrena S. Thompson, REALTOR&reg;, Tennessee Affiliate Broker, License&nbsp;#340848. All real estate advertising is under the supervision of the principal broker.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Back</div>
+  </div>
+
+</div>
+
+<!-- ================= CARD 2 — CRIMSON SOLUTIONS ================= -->
+<div class="set-label">Card 2 &middot; Crimson Solutions &mdash; mobile notary &amp; loan signings</div>
+<div class="pair">
+
+  <div>
+    <div class="card front">
+      <div class="card-inner">
+        <div class="f-top">
+          <img class="f-logo" src="assets/img/logos/crimson-solutions.jpg" alt="">
+          <div>
+            <div class="f-name">Crimson Solutions</div>
+            <div class="f-parent">A Crimson Services Group Company</div>
+          </div>
+        </div>
+        <div>
+          <div class="f-rule"></div>
+          <div class="f-tag">Mobile notary &amp; certified loan signings. We bring the closing table to you &mdash; seven Middle Tennessee counties, evenings and weekends included.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Front</div>
+  </div>
+
+  <div>
+    <div class="card back">
+      <div class="card-inner">
+        <div>
+          <div class="b-name">Dr. Catrena S. Thompson</div>
+          <div class="b-role">Certified Notary Signing Agent</div>
+          <div class="b-brand">Crimson Solutions</div>
+          <dl class="b-contact">
+            <dt>Office</dt><dd>615-994-9244</dd>
+            <dt>Direct</dt><dd>615-994-9094</dd>
+            <dt>Email</dt><dd class="sm">catrena@crimsonservicesgroup.com</dd>
+            <dt>Web</dt><dd class="sm">crimsonservicesgroup.com</dd>
+          </dl>
+          <!-- The NNA's own embed code hotlinks their hosted badge:
+               https://www.nationalnotary.org/Image%20Library/NNA/membership%20images/nsa_member_badge.png
+               That is right for the website but wrong for print — it is a 100px raster and
+               a print shop needs vector or 300dpi artwork. Ask the NNA for a print-resolution
+               file, then swap this .b-seal for it. -->
+          <div class="b-marks">
+            <span class="b-seal">NNA</span>
+            <span class="b-seal">TN</span>
+            <span style="font-size:5.4pt;line-height:1.3;color:var(--slate)">NNA Certified Notary Signing Agent<br>Tennessee Notary Public &middot; Davidson County</span>
+          </div>
+        </div>
+        <div class="b-legal">
+          <span>A notary public is not an attorney and may not give legal advice, prepare legal documents, or select a form on a signer&rsquo;s behalf. Notarial fees are set by Tennessee law; travel, printing, and shipping are quoted separately.</span>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Back</div>
+  </div>
+
+</div>
+
+<!-- ================= CARD 3 — CRIMSON TITLE SERVICES ================= -->
+<div class="set-label">Card 3 &middot; Crimson Title Services &mdash; title &amp; escrow</div>
+<div class="pair">
+
+  <div>
+    <div class="card front">
+      <div class="card-inner">
+        <div class="f-top">
+          <img class="f-logo" src="assets/img/logos/crimson-title-services.jpg" alt="">
+          <div>
+            <div class="f-name">Crimson<br>Title Services</div>
+            <div class="f-parent">A Crimson Services Group Company</div>
+          </div>
+        </div>
+        <div>
+          <div class="f-rule"></div>
+          <div class="f-tag">Title insurance, escrow, and closing coordination for residential and commercial property transfers throughout Middle Tennessee.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Front</div>
+  </div>
+
+  <div>
+    <div class="card back">
+      <div class="card-inner">
+        <div>
+          <div class="b-name">Dr. Catrena S. Thompson</div>
+          <div class="b-role">Founder &amp; Owner</div>
+          <div class="b-brand">Crimson Title Services</div>
+          <dl class="b-contact">
+            <dt>Office</dt><dd>615-994-9244</dd>
+            <dt>Direct</dt><dd>615-994-9094</dd>
+            <dt>Email</dt><dd class="sm">catrena@crimsonservicesgroup.com</dd>
+            <dt>Web</dt><dd class="sm">crimsonservicesgroup.com</dd>
+          </dl>
+        </div>
+        <div class="b-legal">
+          <div class="lgl-row">
+            <img class="b-opm" src="assets/img/logos/oneill-property-management.jpg" alt="">
+            <span>Crimson Title Services is affiliated with Catrena S. Thompson, REALTOR&reg;, of <strong>O&rsquo;Neill Property Management</strong> (Broker <strong>615-650-0008</strong>). You are not required to use Crimson Title Services as a condition of any real estate transaction. Title premiums follow the underwriter&rsquo;s filed rate schedule.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Back</div>
+  </div>
+
+</div>
+
+<!-- ================= PRINT SPEC ================= -->
+<div class="spec screen-note" style="margin-top:44px;border-left-color:var(--navy)">
+  <h1 style="font-size:19px">Printer spec</h1>
+  <ul>
+    <li><strong>Trim size:</strong> 3.5&Prime; &times; 2&Prime; (standard US business card)</li>
+    <li><strong>Bleed:</strong> 0.125&Prime; all sides &rarr; 3.75&Prime; &times; 2.25&Prime; artwork</li>
+    <li><strong>Safe margin:</strong> 0.125&Prime; inside trim</li>
+    <li><strong>Colour:</strong> Crimson <code>#8B1538</code> &middot; deep crimson <code>#6B102A</code> &middot; gold <code>#C9A227</code> &middot; ink <code>#0F1B2D</code> &middot; paper <code>#FCFBF9</code></li>
+    <li><strong>Type:</strong> Crimson Pro (display) + Inter (contact block)</li>
+    <li><strong>Recommended stock:</strong> 16&nbsp;pt matte or soft-touch, full-colour both sides</li>
+    <li><strong>Logos:</strong> the supplied brand files are JPG at 400&nbsp;px. They are fine at the size used here, but ask your printer whether they want vector (AI/EPS/SVG) &mdash; if the mark ever needs to run larger, it will.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 /* ==========================================================================
    Crimson Services Group, LLC — Design System
-   Author: build for catrena@crimsonservicesgroup.com
    Structure: 1.Tokens 2.Reset 3.Type 4.Layout 5.Header 6.Hero 7.Components
               8.Sections 9.Forms 10.Footer 11.Motion 12.Responsive 13.Print
    ========================================================================== */
@@ -59,7 +58,7 @@
 
 /* ---------- 2. RESET ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:104px}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:132px}
 body{
   margin:0;
   background:var(--paper);
@@ -184,16 +183,18 @@ strong{color:var(--ink);font-weight:650}
 
 .site-header{
   position:sticky;top:0;z-index:100;
-  background:rgba(252,251,249,.86);
+  background:rgba(255,255,255,.92);
   backdrop-filter:saturate(180%) blur(14px);
   -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-top:4px solid var(--crimson);
   border-bottom:1px solid var(--line-2);
+  box-shadow:0 1px 0 var(--line);
   transition:box-shadow .3s var(--ease),background .3s var(--ease)
 }
-.site-header.is-stuck{box-shadow:0 1px 0 var(--line),0 10px 30px rgba(11,18,32,.07);background:rgba(252,251,249,.96)}
-.nav{display:flex;align-items:center;gap:22px;padding:14px 0;width:min(100% - 44px,var(--wrap));margin-inline:auto}
+.site-header.is-stuck{box-shadow:0 1px 0 var(--line),0 10px 30px rgba(11,18,32,.07);background:rgba(255,255,255,.98)}
+.nav{display:flex;align-items:center;gap:22px;padding:22px 0;width:min(100% - 44px,var(--wrap));margin-inline:auto}
 
-.brand{display:flex;align-items:center;gap:13px;flex:0 1 auto;min-width:0}
+.brand{display:flex;align-items:center;gap:16px;flex:0 1 auto;min-width:0}
 .brand:hover{color:inherit}
 .brand-mark{width:44px;height:44px;flex:none}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05;min-width:0}
@@ -202,6 +203,52 @@ strong{color:var(--ink);font-weight:650}
   letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
 }
 .brand-sub{font-size:.6rem;letter-spacing:.19em;text-transform:uppercase;color:var(--slate-lt);font-weight:600;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* header lockup — the parent brand is the loudest thing on the page */
+.site-header .brand-logo{width:88px;height:88px;border-radius:16px;padding:3px}
+.site-header .brand-name{
+  font-size:clamp(1.5rem,2.5vw,1.95rem);color:var(--crimson);
+  font-weight:700;letter-spacing:-.025em;line-height:1.02
+}
+.site-header .brand-sub{
+  font-size:.68rem;letter-spacing:.2em;color:var(--slate);
+  margin-top:6px;padding-top:6px;border-top:2px solid var(--gold);
+  display:inline-block;align-self:flex-start
+}
+.site-header .brand:hover .brand-name{color:var(--crimson-dk)}
+
+/* ---------- BROKERAGE BAND (TREC Rule 1260-02-.12(3)(b)) ----------
+   The rule requires the firm name as filed with the Commission, plus the firm
+   telephone number, on every advertisement — and requires the firm name to be
+   set "in letters the same size or larger" than the licensee's name or the name
+   of any team, group, or similar entity. "Crimson Services Group" is the loudest
+   name in the header, so O'Neill Property Management is matched to it exactly:
+   .bb-firm and .site-header .brand-name share the same clamp(). If you ever
+   change one, change the other, or the site falls out of compliance. */
+.brokerage-band{background:var(--sand);border-bottom:1px solid var(--sand-2)}
+.brokerage-band .wrap{
+  display:flex;align-items:center;gap:14px 24px;flex-wrap:wrap;padding:16px 0
+}
+.bb-lockup{display:flex;align-items:center;gap:15px;min-width:0}
+.bb-logo{
+  height:56px;width:auto;flex:none;border-radius:8px;
+  background:#fff;padding:4px;border:1px solid var(--line)
+}
+.bb-txt{display:flex;flex-direction:column;min-width:0}
+.bb-eyebrow{
+  font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;
+  font-weight:700;color:var(--slate-lt);margin-bottom:3px
+}
+.bb-firm{
+  font-family:var(--serif);font-weight:700;color:var(--ink);
+  font-size:clamp(1.5rem,2.5vw,1.95rem);letter-spacing:-.025em;line-height:1.04
+}
+.bb-meta{
+  margin-left:auto;display:flex;flex-direction:column;gap:2px;
+  text-align:right;font-size:.86rem;color:var(--slate)
+}
+.bb-meta a{font-weight:700;color:var(--crimson)}
+.bb-meta .bb-sup{font-size:.76rem;color:var(--slate-lt);max-width:34ch}
 
 .nav-links{display:flex;align-items:center;gap:4px;margin-left:auto;flex:none}
 .nav-links > li{position:relative}
@@ -235,15 +282,17 @@ strong{color:var(--ink);font-weight:650}
 
 /* ---------- 6. HERO ---------- */
 .hero{
-  position:relative;background:var(--ink);color:rgba(255,255,255,.76);
+  position:relative;background:var(--crimson-dk);color:rgba(255,255,255,.8);
   overflow:hidden;isolation:isolate
 }
+/* Crimson is the house colour — it leads, navy only anchors the far corner. */
 .hero::before{
   content:"";position:absolute;inset:0;z-index:0;
   background:
-    radial-gradient(1180px 620px at 8% -8%,rgba(139,21,56,.42),transparent 58%),
-    radial-gradient(900px 520px at 88% 6%,rgba(30,58,95,.9),transparent 62%),
-    radial-gradient(700px 520px at 62% 118%,rgba(201,162,39,.14),transparent 62%);
+    radial-gradient(1180px 660px at 10% -10%,rgba(196,38,74,.85),transparent 62%),
+    radial-gradient(820px 520px at 92% 108%,rgba(21,42,69,.72),transparent 66%),
+    radial-gradient(700px 520px at 60% 116%,rgba(201,162,39,.16),transparent 62%),
+    linear-gradient(155deg,#A11B3F 0%,#8B1538 42%,#5E0E24 100%);
 }
 .hero::after{ /* fine engraved grid — conveys precision/audit */
   content:"";position:absolute;inset:0;z-index:0;opacity:.5;
@@ -269,7 +318,7 @@ strong{color:var(--ink);font-weight:650}
 }
 .hero h1{color:#fff;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--gold-lt)}
-.hero .lead{margin-top:24px;max-width:56ch;font-size:clamp(1.06rem,1.5vw,1.22rem)}
+.hero .lead{margin-top:24px;max-width:56ch;font-size:clamp(1.06rem,1.5vw,1.22rem);color:#fff}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .hero-cred{
   display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:38px;
@@ -280,35 +329,37 @@ strong{color:var(--ink);font-weight:650}
 .hero-cred svg{flex:none;color:var(--gold)}
 
 /* hero brand panel */
+/* cream card floating on the crimson hero */
 .hero-panel{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);
-  border-radius:var(--r-lg);padding:30px;backdrop-filter:blur(8px);
-  box-shadow:0 30px 70px rgba(0,0,0,.32)
+  background:var(--paper);border:1px solid rgba(255,255,255,.5);
+  border-radius:var(--r-lg);padding:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,.34)
 }
-.hero-panel h2{font-size:1.05rem;font-family:var(--sans);font-weight:700;color:#fff;letter-spacing:.01em}
-.hero-panel .micro{color:rgba(255,255,255,.55)}
+.hero-panel h2{font-size:1.05rem;font-family:var(--sans);font-weight:700;color:var(--ink);letter-spacing:.01em}
+.hero-panel .micro{color:var(--slate-lt)}
 .brand-list{margin-top:20px;display:grid;gap:2px}
 .brand-list a{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
-  padding:15px 14px;border-radius:var(--r);color:rgba(255,255,255,.9);
+  padding:15px 14px;border-radius:var(--r);color:var(--ink);
   border:1px solid transparent;transition:.25s var(--ease)
 }
-.brand-list a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);transform:translateX(3px)}
-.bl-dot{width:9px;height:9px;border-radius:50%;background:var(--crimson-lt);box-shadow:0 0 0 4px rgba(169,29,58,.16)}
-.bl-dot--gold{background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,39,.16)}
-.bl-dot--navy{background:#5C87C4;box-shadow:0 0 0 4px rgba(92,135,196,.16)}
-.bl-name{font-weight:650;font-size:.97rem;color:#fff;display:block;line-height:1.3}
-.bl-desc{font-size:.79rem;color:rgba(255,255,255,.56);display:block}
-.bl-arrow{color:rgba(255,255,255,.4);transition:.25s var(--ease)}
-.brand-list a:hover .bl-arrow{color:var(--gold);transform:translateX(3px)}
+.brand-list a:hover{background:var(--sand);border-color:var(--line);transform:translateX(3px)}
+.bl-dot{width:9px;height:9px;border-radius:50%;background:var(--crimson);box-shadow:0 0 0 4px rgba(139,21,56,.14)}
+.bl-dot--gold{background:#A8850F;box-shadow:0 0 0 4px rgba(168,133,15,.16)}
+.bl-dot--navy{background:var(--navy);box-shadow:0 0 0 4px rgba(30,58,95,.14)}
+.bl-name{font-weight:650;font-size:.97rem;color:var(--ink);display:block;line-height:1.3}
+.bl-desc{font-size:.79rem;color:var(--slate-lt);display:block}
+.bl-arrow{color:rgba(15,27,45,.35);transition:.25s var(--ease)}
+.brand-list a:hover .bl-arrow{color:var(--crimson);transform:translateX(3px)}
 
 /* page hero (interior) */
-.page-hero{position:relative;background:var(--ink);overflow:hidden;isolation:isolate}
+.page-hero{position:relative;background:var(--crimson-dk);overflow:hidden;isolation:isolate}
 .page-hero::before{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(900px 460px at 6% -20%,rgba(139,21,56,.36),transparent 60%),
-    radial-gradient(800px 460px at 94% 120%,rgba(30,58,95,.9),transparent 62%);
+    radial-gradient(950px 500px at 6% -20%,rgba(196,38,74,.78),transparent 62%),
+    radial-gradient(760px 440px at 96% 122%,rgba(21,42,69,.66),transparent 64%),
+    linear-gradient(155deg,#9A1937 0%,#8B1538 46%,#5E0E24 100%);
 }
 .page-hero-inner{position:relative;z-index:1;padding:clamp(52px,6.5vw,92px) 0 clamp(58px,7vw,96px);max-width:840px}
 .page-hero h1{color:#fff;font-size:clamp(2.1rem,4.4vw,3.5rem)}
@@ -693,8 +744,18 @@ td strong,th[scope="row"]{color:var(--ink);font-weight:650}
   position:relative;z-index:1;font-family:var(--serif);font-size:clamp(4rem,9vw,6.4rem);
   color:rgba(255,255,255,.9);letter-spacing:-.04em;font-weight:700
 }
+/* founder portrait fills the frame; the crimson wash sits above it, under the caption */
+.founder-media img{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;object-fit:cover;object-position:50% 18%
+}
+.founder-media::before{z-index:1;opacity:.35}
+.founder-media::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,transparent 46%,rgba(15,27,45,.6) 100%)
+}
 .founder-cap{
-  position:absolute;left:0;right:0;bottom:0;z-index:1;padding:26px 24px;
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 24px;
   background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff
 }
 .founder-cap strong{display:block;color:#fff;font-size:1.05rem}
@@ -852,7 +913,10 @@ a.ci-val:hover{color:var(--crimson)}
   .footer-col:last-child h4{grid-column:1/-1}
 }
 @media (max-width:1150px){
-  html{scroll-padding-top:80px}
+  html{scroll-padding-top:104px}
+  .nav{padding:16px 0}
+  .site-header .brand-logo{width:52px;height:52px}
+  .site-header .brand-name{font-size:clamp(1.2rem,3.6vw,1.5rem)}
   .nav-links{
     position:fixed;left:0;right:0;top:100%;bottom:auto;
     max-height:var(--drawer-max,calc(100dvh - 170px));
@@ -872,7 +936,7 @@ a.ci-val:hover{color:var(--crimson)}
 }
 @media (max-width:940px){
   .split,.founder,.tool-grid{grid-template-columns:1fr;gap:34px}
-  .founder-media{aspect-ratio:16/10;max-width:none}
+  .founder-media{aspect-ratio:4/5;max-width:420px;margin-inline:auto}
   .g-3,.g-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .plans{grid-template-columns:repeat(2,1fr);gap:24px}
   .sec-grid{grid-template-columns:repeat(2,1fr)}
@@ -897,6 +961,17 @@ a.ci-val:hover{color:var(--crimson)}
   .footer-bottom .fb-links{margin-left:0;gap:16px}
   .hero-cred{gap:8px 16px;font-size:.8rem}
   .btn{padding:13px 22px}
+  .nav{padding:13px 0;gap:12px}
+  .site-header .brand-logo{width:46px;height:46px}
+  .site-header .brand-name{font-size:1.12rem}
+  .site-header .brand-sub{font-size:.58rem;letter-spacing:.15em;padding-top:4px;margin-top:4px;border-top-width:1.5px}
+  /* .bb-firm shares brand-name's clamp, so it tracks down with it automatically */
+  .brokerage-band .wrap{padding:14px 0;gap:10px}
+  .bb-logo{height:44px}
+  .bb-meta{margin-left:0;text-align:left;flex-basis:100%;font-size:.8rem}
+  .page-hero .logo-tile{height:132px;padding:14px}
+  .page-hero .logo-tile img{max-height:104px;max-width:220px}
+  .cred-mark{flex:1 1 100%}
   .cta-actions .btn{width:100%}
 }
 
@@ -917,16 +992,59 @@ a.ci-val:hover{color:var(--crimson)}
 }
 .footer-brand .brand-logo{border-color:rgba(255,255,255,.16)}
 
-/* logo tile — square brand jpgs sit on their own white card */
+/* logo tile — brand jpgs sit on their own white card.
+   The three brand marks have different aspect ratios (Crimson Solutions is 3:2,
+   the other two are square), so the tile owns the box and the image is contained
+   inside it. That keeps the three cards optically level instead of one running short. */
 .logo-tile{
   background:#fff;border-radius:var(--r);padding:14px;display:grid;place-items:center;
   border:1px solid var(--line);box-shadow:var(--sh-1)
 }
-.logo-tile img{width:100%;max-width:150px;border-radius:8px}
-.logo-tile--lg img{max-width:230px}
+.logo-tile img{width:auto;max-width:100%;height:auto;border-radius:8px;object-fit:contain}
 .on-dark .logo-tile{border-color:rgba(255,255,255,.18)}
-.bc-head .logo-tile{background:rgba(255,255,255,.96);border:0;padding:10px;box-shadow:0 10px 26px rgba(0,0,0,.22)}
-.bc-head .logo-tile img{max-width:112px}
+
+/* page-hero lockup — the brand mark should be the first thing that lands */
+.page-hero .logo-tile{
+  padding:20px;height:170px;width:fit-content;
+  box-shadow:0 18px 44px rgba(0,0,0,.28)
+}
+.page-hero .logo-tile img{max-height:130px;max-width:300px}
+
+/* brand cards on the home page — fixed tile box so all three line up */
+.bc-head .logo-tile{
+  background:rgba(255,255,255,.96);border:0;padding:12px;
+  box-shadow:0 10px 26px rgba(0,0,0,.22);
+  height:112px;width:132px
+}
+.bc-head .logo-tile img{max-height:88px;max-width:108px}
+
+/* credentials & affiliations band — certification marks + brokerage lockup */
+.cred-band{background:var(--white);border-bottom:1px solid var(--line)}
+.cred-band .wrap{padding:30px 0}
+.cred-band-head{
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--slate-lt);margin-bottom:20px
+}
+.cred-marks{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.cred-mark{
+  display:flex;align-items:center;gap:15px;
+  background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--crimson);
+  border-radius:var(--r);padding:15px 20px;flex:1 1 260px;min-width:0
+}
+.cred-mark img{max-height:56px;width:auto;flex:none;border-radius:4px}
+/* NNA badge is square artwork and carries its own lockup — give it a little more room
+   and no rounding, so their mark is not altered. */
+.nna-badge{flex:none;display:block;line-height:0}
+.nna-badge img{max-height:72px;width:auto;border-radius:0}
+.cred-mark-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cred-mark-txt b{font-size:.94rem;color:var(--ink);line-height:1.3}
+.cred-mark-txt span{font-size:.78rem;color:var(--slate-lt);line-height:1.4}
+/* text stand-in for a certification seal until the official artwork is dropped in */
+.cred-seal{
+  flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:var(--gold-lt);border:2px solid var(--gold);
+  font-family:var(--serif);font-weight:700;font-size:1.02rem;letter-spacing:.02em;line-height:1
+}
 
 /* affiliation / licence strip */
 .disclosure{background:var(--sand);border-top:1px solid var(--line)}
@@ -957,6 +1075,29 @@ a.disc-val:hover{color:var(--crimson)}
 }
 .broker-line strong{color:rgba(255,255,255,.9);font-weight:650}
 .broker-line a{color:var(--gold-lt)}
+
+/* T.C.A. 8-16-201(a)(1) requires this notice verbatim and in "conspicuous size"
+   on every advertisement of notary services by a non-attorney notary. The statute
+   names no point size, so it is set larger and heavier than the surrounding legal
+   text and boxed, rather than folded into the fine print. Omission is a deceptive
+   act under 8-16-203 / 47-18-104 — do not shrink, reword, or delete it. */
+.notary-notice{
+  margin:16px 0 0;padding:14px 18px;
+  border:1.5px solid var(--gold);border-radius:var(--r-sm);
+  background:rgba(201,162,39,.09);
+  font-size:.92rem;font-weight:700;line-height:1.45;letter-spacing:.015em;
+  color:#fff
+}
+
+.eho-line{
+  display:flex;align-items:flex-start;gap:11px;margin:14px 0 0;
+  font-size:.78rem;line-height:1.5;color:rgba(255,255,255,.68)
+}
+.eho-mark{
+  flex:none;width:30px;height:30px;border-radius:4px;display:grid;place-items:center;
+  border:1.5px solid rgba(255,255,255,.6);color:rgba(255,255,255,.85);
+  font-size:.56rem;font-weight:800;letter-spacing:.04em
+}
 
 /* mobile sticky call bar */
 .call-bar{
