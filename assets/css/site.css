@@ -217,6 +217,29 @@ strong{color:var(--ink);font-weight:650}
 }
 .site-header .brand:hover .brand-name{color:var(--crimson-dk)}
 
+/* The landing-page lockup gets a dedicated second row for navigation so the
+   full company name and mark can lead without competing for horizontal room. */
+@media (min-width:1151px){
+  .home .nav{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"brand actions" "links links";
+    gap:8px 28px;padding:10px 0
+  }
+  .home .brand{grid-area:brand;width:max-content;max-width:100%;gap:24px}
+  .home .site-header .brand-logo{
+    width:135px;height:135px;padding:4px;border-radius:20px;
+    box-shadow:var(--sh-1)
+  }
+  .home .site-header .brand-name,
+  .home .bb-firm{font-size:clamp(2.5rem,3.75vw,3.06rem)}
+  .home .site-header .brand-sub{font-size:.72rem;letter-spacing:.21em;margin-top:8px;padding-top:8px}
+  .home .nav-links{
+    grid-area:links;margin-left:0;justify-content:center;
+    padding-top:8px;border-top:1px solid var(--line-2)
+  }
+  .home .nav-actions{grid-area:actions}
+}
+
 /* ---------- BROKERAGE BAND (TREC Rule 1260-02-.12(3)(b)) ----------
    The rule requires the firm name as filed with the Commission, plus the firm
    telephone number, on every advertisement — and requires the firm name to be
@@ -282,17 +305,17 @@ strong{color:var(--ink);font-weight:650}
 
 /* ---------- 6. HERO ---------- */
 .hero{
-  position:relative;background:var(--crimson-dk);color:rgba(255,255,255,.8);
+  position:relative;background:var(--ink);color:rgba(255,255,255,.8);
   overflow:hidden;isolation:isolate
 }
-/* Crimson is the house colour — it leads, navy only anchors the far corner. */
+/* Crimson flows through plum into navy for a balanced two-colour field. */
 .hero::before{
   content:"";position:absolute;inset:0;z-index:0;
   background:
-    radial-gradient(1180px 660px at 10% -10%,rgba(196,38,74,.85),transparent 62%),
-    radial-gradient(820px 520px at 92% 108%,rgba(21,42,69,.72),transparent 66%),
-    radial-gradient(700px 520px at 60% 116%,rgba(201,162,39,.16),transparent 62%),
-    linear-gradient(155deg,#A11B3F 0%,#8B1538 42%,#5E0E24 100%);
+    radial-gradient(860px 620px at 0% -8%,rgba(185,34,71,.38),transparent 64%),
+    radial-gradient(900px 600px at 100% 108%,rgba(30,58,95,.72),transparent 68%),
+    radial-gradient(620px 440px at 54% 112%,rgba(201,162,39,.10),transparent 64%),
+    linear-gradient(125deg,#73142F 0%,#5B1A37 24%,#3B2945 46%,#243652 68%,#142A46 100%);
 }
 .hero::after{ /* fine engraved grid — conveys precision/audit */
   content:"";position:absolute;inset:0;z-index:0;opacity:.5;
@@ -305,6 +328,7 @@ strong{color:var(--ink);font-weight:650}
 }
 .hero-inner{position:relative;z-index:2;padding:clamp(72px,10vw,132px) 0 clamp(96px,10vw,148px)}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(34px,5vw,68px);align-items:center}
+.hero-grid > *{min-width:0}
 .hero-badge{
   display:inline-flex;align-items:center;gap:10px;
   padding:7px 16px 7px 8px;border-radius:var(--r-pill);
@@ -482,6 +506,7 @@ strong{color:var(--ink);font-weight:650}
   margin-top:10px;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
   font-weight:650;color:var(--slate-lt)
 }
+.home .stat-num{color:var(--navy)}
 
 /* feature rows */
 .feat{display:flex;gap:17px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line-2)}
@@ -760,6 +785,7 @@ td strong,th[scope="row"]{color:var(--ink);font-weight:650}
 }
 .founder-cap strong{display:block;color:#fff;font-size:1.05rem}
 .founder-cap span{font-size:.82rem;color:rgba(255,255,255,.7)}
+.home .founder-cap strong{font-size:clamp(1.3rem,2vw,1.55rem);line-height:1.2}
 .creds{display:grid;gap:10px;margin-top:26px}
 .cred{
   display:flex;gap:13px;align-items:center;padding:13px 17px;background:var(--white);
@@ -917,6 +943,10 @@ a.ci-val:hover{color:var(--crimson)}
   .nav{padding:16px 0}
   .site-header .brand-logo{width:52px;height:52px}
   .site-header .brand-name{font-size:clamp(1.2rem,3.6vw,1.5rem)}
+  .home .site-header .brand-logo{width:85px;height:85px}
+  .home .site-header .brand-name,
+  .home .bb-firm{font-size:2.06rem}
+  .nav .brand{flex:1 1 auto;overflow:hidden}
   .nav-links{
     position:fixed;left:0;right:0;top:100%;bottom:auto;
     max-height:var(--drawer-max,calc(100dvh - 170px));
@@ -930,7 +960,7 @@ a.ci-val:hover{color:var(--crimson)}
   .nav-links a{padding:15px 6px;border-bottom:1px solid var(--line-2);border-radius:0;font-size:1.02rem}
   .nav-links a.is-active::after{display:none}
   .nav-links li:last-child a{border-bottom:0}
-  .nav-toggle{display:flex;margin-left:auto}
+  .nav-toggle{display:flex;flex:0 0 44px;margin-left:auto}
   .nav-actions .btn{display:none}
   .nav-phone{display:none}
 }
@@ -960,11 +990,20 @@ a.ci-val:hover{color:var(--crimson)}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .footer-bottom .fb-links{margin-left:0;gap:16px}
   .hero-cred{gap:8px 16px;font-size:.8rem}
+  .hero-cta{display:grid;grid-template-columns:1fr}
+  .hero-cta .btn{width:100%}
+  .hero-panel{width:100%;padding:26px 18px}
+  .brand-list a{grid-template-columns:auto minmax(0,1fr) auto;gap:10px;padding:14px 8px}
   .btn{padding:13px 22px}
   .nav{padding:13px 0;gap:12px}
   .site-header .brand-logo{width:46px;height:46px}
   .site-header .brand-name{font-size:1.12rem}
   .site-header .brand-sub{font-size:.58rem;letter-spacing:.15em;padding-top:4px;margin-top:4px;border-top-width:1.5px}
+  .home .nav .brand{gap:8px}
+  .home .site-header .brand-logo{width:70px;height:70px}
+  .home .site-header .brand-name,
+  .home .bb-firm{font-size:1.6rem}
+  .home .site-header .brand-sub{font-size:.54rem;letter-spacing:.11em}
   /* .bb-firm shares brand-name's clamp, so it tracks down with it automatically */
   .brokerage-band .wrap{padding:14px 0;gap:10px}
   .bb-logo{height:44px}
@@ -973,6 +1012,14 @@ a.ci-val:hover{color:var(--crimson)}
   .page-hero .logo-tile img{max-height:104px;max-width:220px}
   .cred-mark{flex:1 1 100%}
   .cta-actions .btn{width:100%}
+}
+@media (max-width:480px){
+  .topbar .wrap{flex-direction:column;gap:3px;padding:7px 0}
+}
+@media (max-width:400px){
+  .home .site-header .brand-name{
+    white-space:normal;overflow:visible;text-overflow:clip;line-height:1
+  }
 }
 
 /* ---------- 13. PRINT ---------- */
