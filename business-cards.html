@@ -73,14 +73,14 @@ body{
   position:absolute;inset:var(--safe);z-index:3;
   display:flex;flex-direction:column
 }
-/* trim + safe guides — screen only, and only when guides are on */
-.guides .card::after{
-  content:"";position:absolute;z-index:9;pointer-events:none;
-  inset:var(--bleed);border:1px dashed rgba(139,21,56,.55)
+/* trim + safe guides — a separate layer so artwork pseudos stay printable */
+.guide-lines{display:none}
+.guides .guide-lines{display:block;position:absolute;inset:0;z-index:9;pointer-events:none}
+.guides .guide-lines::before{
+  content:"";position:absolute;inset:var(--bleed);border:1px dashed rgba(139,21,56,.55)
 }
-.guides .card::before{
-  content:"";position:absolute;z-index:9;pointer-events:none;
-  inset:var(--safe);border:1px dotted rgba(30,58,95,.4)
+.guides .guide-lines::after{
+  content:"";position:absolute;inset:var(--safe);border:1px dotted rgba(30,58,95,.4)
 }
 .cap{font-size:11px;color:var(--slate);margin-top:7px;letter-spacing:.04em}
 
@@ -141,11 +141,20 @@ body{
   font-family:var(--serif);font-size:5pt;font-weight:700;line-height:1
 }
 
+/* Keep the exact print dimensions while scaling screen previews on narrow phones. */
+@media screen and (max-width:403px){
+  .page{padding:24px 12px 48px}
+  .screen-note{padding:18px 16px;margin-bottom:26px}
+}
+@media screen and (max-width:383px){.card{zoom:.9}}
+@media screen and (max-width:347px){.card{zoom:.8}}
+@media screen and (max-width:311px){.card{zoom:.7}}
+
 @media print{
   body{background:#fff}
   .page{max-width:none;padding:0}
   .screen-note,.set-label,.cap,.spec{display:none !important}
-  .guides .card::before,.guides .card::after{display:none !important}
+  .guide-lines{display:none !important}
   .pair{display:block}
   .card{box-shadow:none;margin:0 auto 0}
   @page{size:letter;margin:.25in}
@@ -173,6 +182,7 @@ body{
 
   <div>
     <div class="card front">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div class="f-top">
           <img class="f-logo" src="assets/img/logos/crimson-services-group.jpg" alt="">
@@ -192,6 +202,7 @@ body{
 
   <div>
     <div class="card back">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div>
           <div class="b-name">Dr. Catrena S. Thompson</div>
@@ -223,6 +234,7 @@ body{
 
   <div>
     <div class="card front">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div class="f-top">
           <img class="f-logo" src="assets/img/logos/crimson-solutions.jpg" alt="">
@@ -242,6 +254,7 @@ body{
 
   <div>
     <div class="card back">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div>
           <div class="b-name">Dr. Catrena S. Thompson</div>
@@ -280,6 +293,7 @@ body{
 
   <div>
     <div class="card front">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div class="f-top">
           <img class="f-logo" src="assets/img/logos/crimson-title-services.jpg" alt="">
@@ -299,6 +313,7 @@ body{
 
   <div>
     <div class="card back">
+      <span class="guide-lines" aria-hidden="true"></span>
       <div class="card-inner">
         <div>
           <div class="b-name">Dr. Catrena S. Thompson</div>

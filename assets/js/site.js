@@ -37,20 +37,49 @@
     window.addEventListener('scroll', onScroll, { passive: true });
 
     if (toggle && links) {
-      toggle.addEventListener('click', function () {
-        var open = links.classList.toggle('is-open');
+      var drawerLinks = Array.prototype.slice.call(links.querySelectorAll('a[href]'));
+      var setDrawer = function (open, returnFocus) {
+        links.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', String(open));
         doc.body.style.overflow = open ? 'hidden' : '';
+        if (open && drawerLinks[0]) {
+          window.requestAnimationFrame(function () { drawerLinks[0].focus(); });
+        } else if (returnFocus) {
+          toggle.focus();
+        }
+      };
+      toggle.addEventListener('click', function () {
+        setDrawer(!links.classList.contains('is-open'), true);
       });
       links.addEventListener('click', function (e) {
         if (e.target.closest('a')) {
-          links.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-          doc.body.style.overflow = '';
+          setDrawer(false, false);
         }
       });
       doc.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && links.classList.contains('is-open')) toggle.click();
+        if (!links.classList.contains('is-open')) return;
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          setDrawer(false, true);
+          return;
+        }
+        if (e.key === 'Tab' && drawerLinks.length) {
+          var first = drawerLinks[0];
+          var last = drawerLinks[drawerLinks.length - 1];
+          if (e.shiftKey && doc.activeElement === first) {
+            e.preventDefault();
+            toggle.focus();
+          } else if (e.shiftKey && doc.activeElement === toggle) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && doc.activeElement === toggle) {
+            e.preventDefault();
+            first.focus();
+          } else if (!e.shiftKey && doc.activeElement === last) {
+            e.preventDefault();
+            toggle.focus();
+          }
+        }
       });
     }
   }
@@ -332,16 +361,37 @@
   function initForms() {
     doc.querySelectorAll('form[data-contact]').forEach(function (form) {
       form.addEventListener('submit', function (e) {
-        // If the form still points at the placeholder endpoint, don't post.
         var action = form.getAttribute('action') || '';
-        if (action.indexOf('YOUR_FORM_ID') !== -1 || action === '') {
+        if (action.toLowerCase().indexOf('mailto:') === 0) {
           e.preventDefault();
+          var data = new FormData(form);
+          var read = function (name) {
+            return String(data.get(name) || '').trim();
+          };
+          var service = read('service') || 'General inquiry';
+          var lines = [
+            'New website consultation request',
+            '',
+            'Name: ' + [read('first_name'), read('last_name')].filter(Boolean).join(' '),
+            'Email: ' + read('email'),
+            'Phone: ' + (read('phone') || 'Not provided'),
+            'Company / brokerage: ' + (read('company') || 'Not provided'),
+            'Service: ' + service,
+            'Timing: ' + (read('timing') || 'Not provided'),
+            '',
+            'Details:',
+            read('message') || 'No additional details provided.'
+          ];
+          var recipient = action.slice(7).split('?')[0];
+          var mailto = 'mailto:' + recipient +
+            '?subject=' + encodeURIComponent('Website consultation request: ' + service) +
+            '&body=' + encodeURIComponent(lines.join('\n'));
           var ok = form.parentElement.querySelector('.form-ok');
           if (ok) {
             ok.classList.add('is-visible');
             ok.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
           }
-          form.reset();
+          window.location.href = mailto;
           setTimeout(function () { if (ok) ok.classList.remove('is-visible'); }, 7000);
         }
       });

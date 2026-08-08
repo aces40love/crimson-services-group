@@ -37,11 +37,10 @@ sitemap.xml               All six pages (update the URLs to your domain)
 
 ## Before launch — required
 
-1. **Contact form endpoint.** In `contact.html`, replace `YOUR_FORM_ID` in the form `action`:
-   ```html
-   <form action="https://formspree.io/f/xxxxxxx" method="POST" data-contact novalidate>
-   ```
-   Until that's replaced, the form shows a local success message and does not send anything.
+1. **Contact delivery.** The contact form currently uses a credential-free `mailto:` handoff: it opens
+   the visitor's email app with a prepared message addressed to `catrena@crimsonservicesgroup.com`, and
+   the visitor reviews and sends it. If you later want background web submission, replace the form action
+   with a verified Formspree (or equivalent) endpoint and update the button/help text to say “Send request.”
 
 2. **Canonical domain.** Every page carries a `rel="canonical"` link plus Open Graph tags pointing at
    `https://www.crimsonservicesgroup.com/`. If the live domain differs, search-and-replace that string

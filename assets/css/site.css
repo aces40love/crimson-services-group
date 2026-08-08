@@ -162,6 +162,7 @@ strong{color:var(--ink);font-weight:650}
 .g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.split > *{min-width:0}
 .stack-sm > * + *{margin-top:12px}
 .center{text-align:center}
 .mt-s{margin-top:16px}.mt-m{margin-top:28px}.mt-l{margin-top:44px}
@@ -338,7 +339,8 @@ strong{color:var(--ink);font-weight:650}
 }
 .hero-badge b{
   background:var(--gold);color:var(--ink);font-weight:800;
-  padding:3px 9px;border-radius:var(--r-pill);font-size:.68rem;letter-spacing:.08em
+  padding:3px 9px;border-radius:var(--r-pill);font-size:.68rem;letter-spacing:.08em;
+  white-space:nowrap
 }
 .hero h1{color:#fff;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--gold-lt)}
@@ -368,9 +370,13 @@ strong{color:var(--ink);font-weight:650}
   border:1px solid transparent;transition:.25s var(--ease)
 }
 .brand-list a:hover{background:var(--sand);border-color:var(--line);transform:translateX(3px)}
-.bl-dot{width:9px;height:9px;border-radius:50%;background:var(--crimson);box-shadow:0 0 0 4px rgba(139,21,56,.14)}
-.bl-dot--gold{background:#A8850F;box-shadow:0 0 0 4px rgba(168,133,15,.16)}
-.bl-dot--navy{background:var(--navy);box-shadow:0 0 0 4px rgba(30,58,95,.14)}
+.bl-logo{
+  width:48px;height:48px;border-radius:10px;padding:3px;overflow:hidden;
+  display:grid;place-items:center;background:#fff;border:1px solid var(--line);
+  box-shadow:var(--sh-1);transition:.25s var(--ease)
+}
+.bl-logo img{width:100%;height:100%;object-fit:contain;border-radius:6px}
+.brand-list a:hover .bl-logo{border-color:rgba(139,21,56,.28);box-shadow:0 5px 14px rgba(15,27,45,.10)}
 .bl-name{font-weight:650;font-size:.97rem;color:var(--ink);display:block;line-height:1.3}
 .bl-desc{font-size:.79rem;color:var(--slate-lt);display:block}
 .bl-arrow{color:rgba(15,27,45,.35);transition:.25s var(--ease)}
@@ -586,6 +592,7 @@ strong{color:var(--ink);font-weight:650}
 
 /* tables */
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--white);-webkit-overflow-scrolling:touch}
+.table-scroll-hint{display:none;color:var(--slate-lt);font-size:.82rem;font-weight:650;margin-bottom:10px}
 table{width:100%;border-collapse:collapse;min-width:560px;font-size:.92rem}
 thead th{
   background:var(--ink);color:#fff;text-align:left;padding:15px 20px;
@@ -842,7 +849,7 @@ td strong,th[scope="row"]{color:var(--ink);font-weight:650}
 .field .req{color:var(--crimson)}
 .field input,.field select,.field textarea{
   width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:var(--r-sm);
-  background:var(--paper);font-size:.96rem;color:var(--ink);
+  background:var(--paper);font-size:1rem;color:var(--ink);
   transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease)
 }
 .field input:focus,.field select:focus,.field textarea:focus{
@@ -947,6 +954,9 @@ a.ci-val:hover{color:var(--crimson)}
   .home .site-header .brand-name,
   .home .bb-firm{font-size:2.06rem}
   .nav .brand{flex:1 1 auto;overflow:hidden}
+  .nav .brand-logo{flex:none}
+  .nav .brand-txt{flex:1 1 0;width:0;overflow:hidden}
+  .nav .brand-sub{max-width:100%}
   .nav-links{
     position:fixed;left:0;right:0;top:100%;bottom:auto;
     max-height:var(--drawer-max,calc(100dvh - 170px));
@@ -954,9 +964,10 @@ a.ci-val:hover{color:var(--crimson)}
     flex-direction:column;align-items:stretch;gap:0;background:var(--paper);
     padding:14px 22px 32px;border-top:1px solid var(--line);
     transform:translateY(-6px);opacity:0;visibility:hidden;overflow-y:auto;
-    transition:.3s var(--ease);box-shadow:0 20px 40px rgba(11,18,32,.12)
+    transition:transform .3s var(--ease),opacity .3s var(--ease),visibility 0s linear .3s;
+    box-shadow:0 20px 40px rgba(11,18,32,.12)
   }
-  .nav-links.is-open{transform:none;opacity:1;visibility:visible}
+  .nav-links.is-open{transform:none;opacity:1;visibility:visible;transition-delay:0s}
   .nav-links a{padding:15px 6px;border-bottom:1px solid var(--line-2);border-radius:0;font-size:1.02rem}
   .nav-links a.is-active::after{display:none}
   .nav-links li:last-child a{border-bottom:0}
@@ -994,32 +1005,35 @@ a.ci-val:hover{color:var(--crimson)}
   .hero-cta .btn{width:100%}
   .hero-panel{width:100%;padding:26px 18px}
   .brand-list a{grid-template-columns:auto minmax(0,1fr) auto;gap:10px;padding:14px 8px}
-  .btn{padding:13px 22px}
+  .consent input{width:18px;height:18px;margin-top:1px}
+  .btn{max-width:100%;padding:13px 22px;white-space:normal;text-align:center}
   .nav{padding:13px 0;gap:12px}
   .site-header .brand-logo{width:46px;height:46px}
   .site-header .brand-name{font-size:1.12rem}
-  .site-header .brand-sub{font-size:.58rem;letter-spacing:.15em;padding-top:4px;margin-top:4px;border-top-width:1.5px}
+  .site-header .brand-sub{font-size:.625rem;letter-spacing:.12em;padding-top:4px;margin-top:4px;border-top-width:1.5px}
   .home .nav .brand{gap:8px}
   .home .site-header .brand-logo{width:70px;height:70px}
   .home .site-header .brand-name,
   .home .bb-firm{font-size:1.6rem}
-  .home .site-header .brand-sub{font-size:.54rem;letter-spacing:.11em}
+  .home .site-header .brand-name{
+    white-space:normal;overflow:visible;text-overflow:clip;line-height:1
+  }
+  .home .site-header .brand-sub{font-size:.625rem;letter-spacing:.1em}
   /* .bb-firm shares brand-name's clamp, so it tracks down with it automatically */
-  .brokerage-band .wrap{padding:14px 0;gap:10px}
+  .brokerage-band .wrap{padding:10px 0;gap:8px 10px}
   .bb-logo{height:44px}
-  .bb-meta{margin-left:0;text-align:left;flex-basis:100%;font-size:.8rem}
+  .bb-meta{margin-left:0;text-align:left;flex-basis:100%;font-size:.8rem;line-height:1.5}
   .page-hero .logo-tile{height:132px;padding:14px}
   .page-hero .logo-tile img{max-height:104px;max-width:220px}
   .cred-mark{flex:1 1 100%}
   .cta-actions .btn{width:100%}
 }
 @media (max-width:480px){
-  .topbar .wrap{flex-direction:column;gap:3px;padding:7px 0}
+  .topbar .wrap{gap:3px 16px;padding:7px 0}
+  .topbar a{min-height:28px}
 }
 @media (max-width:400px){
-  .home .site-header .brand-name{
-    white-space:normal;overflow:visible;text-overflow:clip;line-height:1
-  }
+  .site-header .brand-sub{display:none}
 }
 
 /* ---------- 13. PRINT ---------- */
@@ -1149,12 +1163,12 @@ a.disc-val:hover{color:var(--crimson)}
 /* mobile sticky call bar */
 .call-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;
-  background:var(--crimson);color:#fff;padding:12px 16px;
+  background:var(--crimson);color:#fff;padding:3px 16px;
   box-shadow:0 -6px 22px rgba(15,27,45,.24)
 }
 .call-bar a{
   color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;
-  font-weight:700;font-size:.98rem
+  min-height:44px;font-weight:700;font-size:.98rem
 }
 /* These must stay last in the file: the base .disclosure-grid rule above is
    unconditional, so its responsive overrides have to come after it to win. */
@@ -1166,4 +1180,7 @@ a.disc-val:hover{color:var(--crimson)}
   body{padding-bottom:58px}
   .to-top{bottom:74px}
   .disclosure-grid{grid-template-columns:1fr}
+  .page-hero .logo-tile{height:132px;padding:14px}
+  .page-hero .logo-tile img{max-height:104px;max-width:220px}
+  .table-scroll-hint{display:block}
 }

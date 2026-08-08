@@ -124,8 +124,9 @@ itself create a false statement.
    reasonable Middle-TN defaults, **not filed rates**. Once your underwriter issues a rate
    schedule, replace them. Until then a regulator could read the output as a premium quote.
 
-8. **The contact form still posts to `YOUR_FORM_ID`** — it silently fails while the page promises
-   a reply within one business day. Give me a Formspree ID (or another endpoint) and I'll wire it.
+8. **Contact delivery uses the visitor's email app.** The form prepares an email addressed to
+   `catrena@crimsonservicesgroup.com`; the visitor must review it and tap Send. This avoids a false
+   success state and avoids routing inquiry data through an unapproved third-party form service.
 
 ---
 

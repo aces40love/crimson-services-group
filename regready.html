@@ -85,7 +85,7 @@
 <div class="brokerage-band" role="region" aria-label="Real estate brokerage firm disclosure">
   <div class="wrap">
     <div class="bb-lockup">
-      <img class="bb-logo" src="assets/img/logos/oneill-property-management.jpg" alt="O'Neill Property Management" loading="lazy">
+      <img class="bb-logo" src="assets/img/logos/oneill-property-management.jpg" alt="O'Neill Property Management" width="329" height="120">
       <span class="bb-txt">
         <span class="bb-eyebrow">Real estate brokerage firm</span>
         <span class="bb-firm">O&rsquo;Neill Property Management</span>
@@ -98,7 +98,7 @@
   </div>
 </div>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
@@ -342,7 +342,7 @@
           </div>
         </div>
 
-        <div class="tool-out">
+        <div class="tool-out" aria-live="polite">
           <h4>Recommended plan</h4>
           <div class="tool-total" id="ppPlan">Exam Prep</div>
           <div style="font-size:1.5rem;font-family:var(--serif);color:var(--gold-lt);margin-top:6px;font-weight:700" id="ppPrice">$7,800/mo</div>
@@ -367,7 +367,8 @@
       <p class="lead">No quote required to know what something costs. These are the same numbers in every engagement letter we write.</p>
     </div>
 
-    <div class="table-wrap" data-reveal>
+    <p class="table-scroll-hint" id="rackSwipeHint">Swipe horizontally to view all rate and turnaround columns <span aria-hidden="true">&rarr;</span></p>
+    <div class="table-wrap" role="region" aria-label="Rack rates and turnaround table" aria-describedby="rackSwipeHint" tabindex="0" data-reveal>
       <table>
         <caption class="sr-only">Rack rates, overage rates, and turnaround commitments by review level</caption>
         <thead>
@@ -422,7 +423,8 @@
       </table>
     </div>
 
-    <div class="table-wrap mt-m" data-reveal>
+    <p class="table-scroll-hint mt-m" id="planSwipeHint">Swipe horizontally to view all subscription plan columns <span aria-hidden="true">&rarr;</span></p>
+    <div class="table-wrap" role="region" aria-label="Subscription plan credits and pricing table" aria-describedby="planSwipeHint" tabindex="0" data-reveal>
       <table>
         <caption class="sr-only">Subscription plan credits and pricing</caption>
         <thead>
